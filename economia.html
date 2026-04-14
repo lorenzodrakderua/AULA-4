@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador financeiro</title>
+</head>
+<body>
+    <h1>Simulador de financeiro Mensal</h1>
+
+    <p>quanto você vai guardar por mês (R$)?</p>
+    <input type="number" id="valorMensal" placeholder="Exemplo:50 conto">
+
+    <p>Por quantos meses você quer poupar?</p>
+    <input type="number" id="meses" placeholder="Exemplo:12 meses">
+
+    <button onclick="calcular()">Simular Plano</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular(){
+            let valor = Number(document.getElementById("valorMensal").value);
+            let meses = Number(document.getElementById("meses").value);
+            let res = document.getElementById("resultado");
+
+            res.innerHTML = "<h3>Seu plano de Economia:</h3>";
+
+            for(let i = 1; i <= meses; i++){
+                let totalAcumulado = valor * i;
+
+                res.innerHTML += "Mês " + i + 
+                ": Você terá acumulado <b>R$ " + totalAcumulado + "</b><br>";
+            }
+        }
+    </script>
+</body>
+</html>
